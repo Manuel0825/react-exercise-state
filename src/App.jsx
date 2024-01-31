@@ -16,6 +16,12 @@ function App() {
     }
   };
 
+  const handleKeyPress = (e) => {
+    if (e.key === 'Enter') {
+      handleAddTask();
+    }
+  };
+
   return (
     <div>
       <h1>To-Do List</h1>
@@ -24,6 +30,7 @@ function App() {
         value={newTask}
         onChange={(e) => setNewTask(e.target.value)}
         placeholder="Add a new task..."
+        onKeyDown={handleKeyPress}
       />
       <button onClick={handleAddTask}>Add Task</button>
       <TaskList tasks={tasks} />
